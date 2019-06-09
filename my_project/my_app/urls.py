@@ -1,14 +1,12 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
 from my_app import views
-from django.conf.urls import url
 
-#TEMPLATE TAGGING
 app_name='my_app'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.base,name='base'),
-    url(r'^relative/$',views.relative,name='relative'),
-    url(r'^other/$',views.other,name='other'),
+    path("",views.index,name='index'),
+    path("register/",views.register,name='register'),
+    path('user_login/',views.user_login,name="user_login"),
 ]

@@ -1,5 +1,4 @@
 """my_project URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -15,12 +14,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
 from my_app import views
-from django.conf.urls import url,include
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',views.index,name="index"),
-    url(r'^my_app/',include('my_app.urls')),
+    path("",views.index,name='index'),
+    path('my_app/',include('my_app.urls')),
+    path('logout/',views.user_logout,name='logout'),
+    path('special/',views.special,name='special')
 ]
